@@ -15,8 +15,11 @@ This project is meant to teach me about Node.js and some of it's popular framewo
     - [x] Connecting users using socket.io
     - [x] Update users when a new data is added to the server
     - [x] Using MongoDB
-    - [ ] Saving data to MongoDB using Mongoose
-    - [ ] 
+    - [x] Creating a Database
+    - [x] Creating an object schema for MongoDB
+    - [x] Saving data to MongoDB using Mongoose
+    - [x] Loading data from MongoDB using Mongoose
+    - [x] Update our 'get' and 'post' requests to save and load data from and to our MongoDB
 
 ## How The App Looks
 <p align="center">
