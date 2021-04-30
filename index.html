@@ -10,7 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-
+    <script src="/socket.io/socket.io.js"></script>
     <style>
         h1.display-4 {
             margin-bottom: 25px;
@@ -87,15 +87,19 @@
         </div>
     </div>
     <script>
+        // initalize socket
+        var socket = io()
         // Document ready function, gets called when our document is loaded
         $(() => {
             $("#button-addon2").click(() => {
                 var message = {name: $("#username").val(), message: $("#message").val()}
                 postMessage(message)
-                var elem = document.getElementById('messages');
-                elem.scrollTop = elem.scrollHeight;
             })
             getMessages()
+        })
+
+        socket.on('message', (message) => {
+            addMessages(message)
         })
 
         function addMessages(message) {
@@ -105,6 +109,8 @@
             var name = meThem == "me" ? "" : message.name + ":"
             $("#messages").append(`<ul><li class="${meThem}"><b>${name}</b> ${message.message}</li></ul>`)
             document.getElementById('message').value = ""
+            var elem = document.getElementById('messages');
+            elem.scrollTop = elem.scrollHeight;
         }
 
         function getMessages() {
@@ -117,7 +123,7 @@
 
         function postMessage(message) {
             $.post('http://localhost:3000/messages', message)
-            addMessages(message)
+            // addMessages(message)
         }
     </script>
 </body>
