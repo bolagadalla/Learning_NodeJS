@@ -10,6 +10,8 @@ This project is meant to teach me about Node.js and some of it's popular framewo
     - [x] Serving a static html page
     - [x] Implement 'get' requests
     - [x] Implements 'post' requests
+    - [x] Installing socket.io
+    - [ ] Setting up socket.io
 
 ## How The App Looks
 <p align="center">

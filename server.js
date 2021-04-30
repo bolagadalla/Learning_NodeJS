@@ -1,13 +1,13 @@
 const { response } = require('express')
 var express = require('express')
-var body = require('body-parser')
 
 // Instance of express 
 var app = express()
 
 // Serving a static html file
 app.use(express.static(__dirname))
-app.use(body.json())
+app.use(express.urlencoded({extended: true}));
+app.use(express.json())
 // Array of messages
 var messages = [
     {name: 'Tim', message: 'Hi'},
